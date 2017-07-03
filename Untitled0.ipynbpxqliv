@@ -1,0 +1,1640 @@
+{
+ "metadata": {
+  "name": "",
+  "signature": "sha256:967fb030caeed0e02af0863730c48637c7975c0104379faf5b227e188f5cbb42"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import hyperspy as hp"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "load?"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 8
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "my_np_array=np.random.random((10,20,100))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 9
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=signals.Spectrum(my_np_array)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 10
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 11,
+       "text": [
+        "<Spectrum, title: , dimensions: (20, 10|100)>"
+       ]
+      }
+     ],
+     "prompt_number": 11
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=signals.Spectrum(np.zeros((10,20,30)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 12
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 13,
+       "text": [
+        "<Spectrum, title: , dimensions: (20, 10|30)>"
+       ]
+      }
+     ],
+     "prompt_number": 13
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im=signals.Image(np.zeros((30,10,20)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 14
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 15,
+       "text": [
+        "<Image, title: , dimensions: (30|20, 10)>"
+       ]
+      }
+     ],
+     "prompt_number": 15
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=signals.Spectrum(np.random.random((10,20,100)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 16
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 17,
+       "text": [
+        "<Spectrum, title: , dimensions: (20, 10|100)>"
+       ]
+      }
+     ],
+     "prompt_number": 17
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 18,
+       "text": [
+        "<Axes manager, axes: (<Unnamed 0th axis, size: 20, index: 0>, <Unnamed 1st axis, size: 10, index: 0>|<Unnamed 2nd axis, size: 100>)>"
+       ]
+      }
+     ],
+     "prompt_number": 18
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 19,
+       "text": [
+        "<Unnamed 0th axis, size: 20, index: 0>"
+       ]
+      }
+     ],
+     "prompt_number": 19
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[0].name=\"X\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 20
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[\"X\"].scale=0.2"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 21
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[\"X\"].units=\"nm\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 23
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[\"X\"].offset=100"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 24
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=load('LL_cal.msa')"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 27
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 28,
+       "text": [
+        "\u251c\u2500\u2500 General\n",
+        "\u2502   \u251c\u2500\u2500 original_filename = LL_cal.msa\n",
+        "\u2502   \u2514\u2500\u2500 title = LL_cal\n",
+        "\u2514\u2500\u2500 Signal\n",
+        "    \u251c\u2500\u2500 binned = True\n",
+        "    \u251c\u2500\u2500 record_by = spectrum\n",
+        "    \u251c\u2500\u2500 signal_origin = \n",
+        "    \u2514\u2500\u2500 signal_type = EELS"
+       ]
+      }
+     ],
+     "prompt_number": 28
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.original_metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 29,
+       "text": [
+        "\u251c\u2500\u2500 DATATYPE = XY\n",
+        "\u251c\u2500\u2500 DATE = \n",
+        "\u251c\u2500\u2500 FORMAT = EMSA/MAS Spectral Data File\n",
+        "\u251c\u2500\u2500 NCOLUMNS = 1.0\n",
+        "\u251c\u2500\u2500 NPOINTS = 1024.0\n",
+        "\u251c\u2500\u2500 OFFSET = -22.5\n",
+        "\u251c\u2500\u2500 OWNER = \n",
+        "\u251c\u2500\u2500 TIME = \n",
+        "\u251c\u2500\u2500 TITLE = LL_cal\n",
+        "\u251c\u2500\u2500 VERSION = 1.0\n",
+        "\u251c\u2500\u2500 XPERCHAN = 0.5\n",
+        "\u251c\u2500\u2500 XUNITS = eV\n",
+        "\u2514\u2500\u2500 YUNITS = "
+       ]
+      }
+     ],
+     "prompt_number": 29
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.set_microscope_parameters(100,10,20)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 30
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 31,
+       "text": [
+        "\u251c\u2500\u2500 Acquisition_instrument\n",
+        "\u2502   \u2514\u2500\u2500 TEM\n",
+        "\u2502       \u251c\u2500\u2500 Detector\n",
+        "\u2502       \u2502   \u2514\u2500\u2500 EELS\n",
+        "\u2502       \u2502       \u2514\u2500\u2500 collection_angle = 20\n",
+        "\u2502       \u251c\u2500\u2500 beam_energy = 100\n",
+        "\u2502       \u2514\u2500\u2500 convergence_angle = 10\n",
+        "\u251c\u2500\u2500 General\n",
+        "\u2502   \u251c\u2500\u2500 original_filename = LL_cal.msa\n",
+        "\u2502   \u2514\u2500\u2500 title = LL_cal\n",
+        "\u2514\u2500\u2500 Signal\n",
+        "    \u251c\u2500\u2500 binned = True\n",
+        "    \u251c\u2500\u2500 record_by = spectrum\n",
+        "    \u251c\u2500\u2500 signal_origin = \n",
+        "    \u2514\u2500\u2500 signal_type = EELS"
+       ]
+      }
+     ],
+     "prompt_number": 31
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata.Acquisition_instrument.TEM.microscope=\"STEM VG\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 33
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "preferences.gui()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 37
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im=signals.Image(np.random.random((64,64)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 36
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=signals.Spectrum(np.random.random((10,20,100)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 38
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 39,
+       "text": [
+        "<Spectrum, title: , dimensions: (20, 10|100)>"
+       ]
+      }
+     ],
+     "prompt_number": 39
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 40,
+       "text": [
+        "\u251c\u2500\u2500 General\n",
+        "\u2502   \u2514\u2500\u2500 title = \n",
+        "\u2514\u2500\u2500 Signal\n",
+        "    \u251c\u2500\u2500 binned = False\n",
+        "    \u251c\u2500\u2500 record_by = spectrum\n",
+        "    \u251c\u2500\u2500 signal_origin = \n",
+        "    \u2514\u2500\u2500 signal_type = "
+       ]
+      }
+     ],
+     "prompt_number": 40
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im=s.to_image()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 41
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 42,
+       "text": [
+        "<Image, title: , dimensions: (100|20, 10)>"
+       ]
+      }
+     ],
+     "prompt_number": 42
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im.metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 43,
+       "text": [
+        "\u251c\u2500\u2500 General\n",
+        "\u2502   \u2514\u2500\u2500 title = \n",
+        "\u2514\u2500\u2500 Signal\n",
+        "    \u251c\u2500\u2500 binned = False\n",
+        "    \u251c\u2500\u2500 record_by = image\n",
+        "    \u251c\u2500\u2500 signal_origin = \n",
+        "    \u2514\u2500\u2500 signal_type = "
+       ]
+      }
+     ],
+     "prompt_number": 43
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.set_signal_type(\"EELS\")"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 44
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 49,
+       "text": [
+        "\u251c\u2500\u2500 General\n",
+        "\u2502   \u2514\u2500\u2500 title = \n",
+        "\u2514\u2500\u2500 Signal\n",
+        "    \u251c\u2500\u2500 binned = True\n",
+        "    \u251c\u2500\u2500 record_by = spectrum\n",
+        "    \u251c\u2500\u2500 signal_origin = \n",
+        "    \u2514\u2500\u2500 signal_type = EELS"
+       ]
+      }
+     ],
+     "prompt_number": 49
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.set_signal_type(\"EELS\")"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 55
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata.Signal.signal_origin=\"simulation\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 58
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 59,
+       "text": [
+        "\u251c\u2500\u2500 General\n",
+        "\u2502   \u2514\u2500\u2500 title = \n",
+        "\u2514\u2500\u2500 Signal\n",
+        "    \u251c\u2500\u2500 binned = True\n",
+        "    \u251c\u2500\u2500 record_by = spectrum\n",
+        "    \u251c\u2500\u2500 signal_origin = simulation\n",
+        "    \u2514\u2500\u2500 signal_type = EELS"
+       ]
+      }
+     ],
+     "prompt_number": 59
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=signals.Spectrum(np.arange(10))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 60
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 61,
+       "text": [
+        "<Spectrum, title: , dimensions: (|10)>"
+       ]
+      }
+     ],
+     "prompt_number": 61
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 62,
+       "text": [
+        "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+       ]
+      }
+     ],
+     "prompt_number": 62
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 64,
+       "text": [
+        "<Spectrum, title: , dimensions: (|1)>"
+       ]
+      }
+     ],
+     "prompt_number": 64
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[0].data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 65,
+       "text": [
+        "array([0])"
+       ]
+      }
+     ],
+     "prompt_number": 65
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[5::-1]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 66,
+       "text": [
+        "<Spectrum, title: , dimensions: (|6)>"
+       ]
+      }
+     ],
+     "prompt_number": 66
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[5::-1].data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 67,
+       "text": [
+        "array([5, 4, 3, 2, 1, 0])"
+       ]
+      }
+     ],
+     "prompt_number": 67
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[-1]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 68,
+       "text": [
+        "<Spectrum, title: , dimensions: (|1)>"
+       ]
+      }
+     ],
+     "prompt_number": 68
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[-1].data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 69,
+       "text": [
+        "array([9])"
+       ]
+      }
+     ],
+     "prompt_number": 69
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[:-1]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 70,
+       "text": [
+        "<Spectrum, title: , dimensions: (|9)>"
+       ]
+      }
+     ],
+     "prompt_number": 70
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[:-1].data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 71,
+       "text": [
+        "array([0, 1, 2, 3, 4, 5, 6, 7, 8])"
+       ]
+      }
+     ],
+     "prompt_number": 71
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s[9::-1].data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 73,
+       "text": [
+        "array([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])"
+       ]
+      }
+     ],
+     "prompt_number": 73
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 74,
+       "text": [
+        "<Unnamed 0th axis, size: 10>"
+       ]
+      }
+     ],
+     "prompt_number": 74
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[0].scale=0.5"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 75
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[0].axis"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 77,
+       "text": [
+        "array([ 0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ,  3.5,  4. ,  4.5])"
+       ]
+      }
+     ],
+     "prompt_number": 77
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 78,
+       "text": [
+        "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+       ]
+      }
+     ],
+     "prompt_number": 78
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s = signals.Spectrum(np.arange(2*3*4).reshape((2,3,4)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 79
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 80,
+       "text": [
+        "<Spectrum, title: , dimensions: (3, 2|4)>"
+       ]
+      }
+     ],
+     "prompt_number": 80
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 81,
+       "text": [
+        "array([[[ 0,  1,  2,  3],\n",
+        "        [ 4,  5,  6,  7],\n",
+        "        [ 8,  9, 10, 11]],\n",
+        "\n",
+        "       [[12, 13, 14, 15],\n",
+        "        [16, 17, 18, 19],\n",
+        "        [20, 21, 22, 23]]])"
+       ]
+      }
+     ],
+     "prompt_number": 81
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[0].name='x'"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 84
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[1].name='y'"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 85
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[2].name='t'"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 87
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager.signal_axes"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 88,
+       "text": [
+        "(<t axis, size: 4>,)"
+       ]
+      }
+     ],
+     "prompt_number": 88
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager.navigation_axes"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 89,
+       "text": [
+        "(<x axis, size: 3, index: 0>, <y axis, size: 2, index: 0>)"
+       ]
+      }
+     ],
+     "prompt_number": 89
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.inav[0,0].data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 90,
+       "text": [
+        "array([0, 1, 2, 3])"
+       ]
+      }
+     ],
+     "prompt_number": 90
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.inav[2,1].data"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 91,
+       "text": [
+        "array([20, 21, 22, 23])"
+       ]
+      }
+     ],
+     "prompt_number": 91
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image_stack=signals.Image(np.random.random((2,5,64,64)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 92
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image_stack"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 93,
+       "text": [
+        "<Image, title: , dimensions: (5, 2|64, 64)>"
+       ]
+      }
+     ],
+     "prompt_number": 93
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "for single_image in image_stack:\n",
+      "    single_image.save(\"image %s.png\" % str(image_stack.axes_manager.indices))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (0, 0).png file was created\n",
+        "The image (1, 0).png file was created\n",
+        "The image (2, 0).png file was created\n",
+        "The image (3, 0).png file was created\n",
+        "The image (4, 0).png file was created\n",
+        "The image (0, 1).png file was created\n",
+        "The image (1, 1).png file was created\n",
+        "The image (2, 1).png file was created\n",
+        "The image (3, 1).png file was created"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "\n",
+        "The image (4, 1).png file was created\n"
+       ]
+      }
+     ],
+     "prompt_number": 95
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image_stack=signals.Image(np.random.random((2,5,64,64)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 1
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image_stack"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 2,
+       "text": [
+        "<Image, title: , dimensions: (5, 2|64, 64)>"
+       ]
+      }
+     ],
+     "prompt_number": 2
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "for single_image in image_stack:\n",
+      "    single_image.save(\"image %s.png\" % str(image_stack.axes_manager.indices))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (0, 0).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (0, 0).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (1, 0).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (1, 0).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (2, 0).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (2, 0).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (3, 0).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (3, 0).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (4, 0).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (4, 0).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (0, 1).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (0, 1).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (1, 1).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (1, 1).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (2, 1).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (2, 1).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (3, 1).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (3, 1).png file was created\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Overwrite 'image (4, 1).png' (y/n)?\n",
+        "y\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "The image (4, 1).png file was created\n"
+       ]
+      }
+     ],
+     "prompt_number": 3
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import scipy.ndimage"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 4
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image_stack=signals.Image(np.array([scipy.misc.lena()]*5))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 6
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image_stack.axes_manager[1].name=\"x\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image_stack.axes_manager[2].name=\"y\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 8
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "for image, angle in zip(image_stack, (0,45,90,135,180)):\n",
+      "    image.data[:]=scipy.ndimage.rotate(image.data, angle=angle, reshape=False)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 26
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "collage=utils.stack([image for image in image_stack], axis=0)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 27
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "collage.plot()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 28
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import scipy.ndimage\n",
+      ">>> image_stack = signals.Image(np.array([scipy.misc.lena()]*4))\n",
+      ">>> image_stack.axes_manager[1].name = \"x\"\n",
+      ">>> image_stack.axes_manager[2].name = \"y\"\n",
+      ">>> angles = signals.Signal(np.array([0, 45, 90, 135]))\n",
+      ">>> angles.axes_manager.set_signal_dimension(0)\n",
+      ">>> modes = signals.Signal(np.array(['constant', 'nearest', 'reflect', 'wrap']))\n",
+      ">>> modes.axes_manager.set_signal_dimension(0)\n",
+      ">>> image_stack.map(scipy.ndimage.rotate,\n",
+      "...                            angle=angles,\n",
+      "...                            reshape=False,\n",
+      "...                            mode=modes)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "\r",
+        "calculating   0% |                                             | ETA:  --:--:--"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \r",
+        "calculating  25% |###########                                  | ETA:  00:00:00"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \r",
+        "calculating  50% |######################                       | ETA:  00:00:00"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \r",
+        "calculating  75% |#################################            | ETA:  00:00:00"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \r",
+        "calculating 100% |#############################################| ETA:  00:00:00"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \n",
+        "\n"
+       ]
+      }
+     ],
+     "prompt_number": 29
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import scipy.ndimage\n",
+      ">>> image_stack = signals.Image(np.array([scipy.misc.lena()]*4))\n",
+      ">>> image_stack.axes_manager[1].name = \"x\"\n",
+      ">>> image_stack.axes_manager[2].name = \"y\"\n",
+      ">>> angles = signals.Signal(np.array([0, 45, 90, 135]))\n",
+      ">>> angles.axes_manager.set_signal_dimension(0)\n",
+      ">>> modes = signals.Signal(np.array(['constant', 'nearest', 'reflect', 'wrap']))\n",
+      ">>> modes.axes_manager.set_signal_dimension(0)\n",
+      ">>> image_stack.map(scipy.ndimage.rotate,\n",
+      "...                            angle=angles,\n",
+      "...                            reshape=False,\n",
+      "...                            mode=modes)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "\r",
+        "calculating   0% |                                             | ETA:  --:--:--"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \r",
+        "calculating  25% |###########                                  | ETA:  00:00:00"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \r",
+        "calculating  50% |######################                       | ETA:  00:00:00"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \r",
+        "calculating  75% |#################################            | ETA:  00:00:00"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \r",
+        "calculating 100% |#############################################| ETA:  00:00:00"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        " \n",
+        "\n"
+       ]
+      }
+     ],
+     "prompt_number": 1
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image=signals.Image(np.array([scipy.misc.lena()]))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 9
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import scipy.ndimage"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 10
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image = utils.stack([utils.stack([image]*3,axis=0)]*3,axis=1)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 11
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image=utils.stack([utils.stack([image]*3,axis=0)]*3,axis=1)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 12
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "image.plot()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stderr",
+       "text": [
+        "C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\matplotlib\\axes\\_base.py:1057: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal\n",
+        "  if aspect == 'normal':\n",
+        "C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\matplotlib\\axes\\_base.py:1062: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal\n",
+        "  elif aspect in ('equal', 'auto'):\n"
+       ]
+      }
+     ],
+     "prompt_number": 13
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}

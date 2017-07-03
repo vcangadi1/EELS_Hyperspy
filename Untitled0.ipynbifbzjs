@@ -1,0 +1,456 @@
+{
+ "metadata": {
+  "name": "",
+  "signature": "sha256:369e2422dd6ea619795297d587884946922d383bbd6caa465c9a3be88db43781"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import hyperspy as hp"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "load?"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 8
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "my_np_array=np.random.random((10,20,100))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 9
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=signals.Spectrum(my_np_array)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 10
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 11,
+       "text": [
+        "<Spectrum, title: , dimensions: (20, 10|100)>"
+       ]
+      }
+     ],
+     "prompt_number": 11
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=signals.Spectrum(np.zeros((10,20,30)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 12
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 13,
+       "text": [
+        "<Spectrum, title: , dimensions: (20, 10|30)>"
+       ]
+      }
+     ],
+     "prompt_number": 13
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im=signals.Image(np.zeros((30,10,20)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 14
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 15,
+       "text": [
+        "<Image, title: , dimensions: (30|20, 10)>"
+       ]
+      }
+     ],
+     "prompt_number": 15
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=signals.Spectrum(np.random.random((10,20,100)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 16
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 17,
+       "text": [
+        "<Spectrum, title: , dimensions: (20, 10|100)>"
+       ]
+      }
+     ],
+     "prompt_number": 17
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 18,
+       "text": [
+        "<Axes manager, axes: (<Unnamed 0th axis, size: 20, index: 0>, <Unnamed 1st axis, size: 10, index: 0>|<Unnamed 2nd axis, size: 100>)>"
+       ]
+      }
+     ],
+     "prompt_number": 18
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 19,
+       "text": [
+        "<Unnamed 0th axis, size: 20, index: 0>"
+       ]
+      }
+     ],
+     "prompt_number": 19
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[0].name=\"X\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 20
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[\"X\"].scale=0.2"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 21
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[\"X\"].units=\"nm\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 23
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.axes_manager[\"X\"].offset=100"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 24
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s=load('LL_cal.msa')"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 27
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 28,
+       "text": [
+        "\u251c\u2500\u2500 General\n",
+        "\u2502   \u251c\u2500\u2500 original_filename = LL_cal.msa\n",
+        "\u2502   \u2514\u2500\u2500 title = LL_cal\n",
+        "\u2514\u2500\u2500 Signal\n",
+        "    \u251c\u2500\u2500 binned = True\n",
+        "    \u251c\u2500\u2500 record_by = spectrum\n",
+        "    \u251c\u2500\u2500 signal_origin = \n",
+        "    \u2514\u2500\u2500 signal_type = EELS"
+       ]
+      }
+     ],
+     "prompt_number": 28
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.original_metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 29,
+       "text": [
+        "\u251c\u2500\u2500 DATATYPE = XY\n",
+        "\u251c\u2500\u2500 DATE = \n",
+        "\u251c\u2500\u2500 FORMAT = EMSA/MAS Spectral Data File\n",
+        "\u251c\u2500\u2500 NCOLUMNS = 1.0\n",
+        "\u251c\u2500\u2500 NPOINTS = 1024.0\n",
+        "\u251c\u2500\u2500 OFFSET = -22.5\n",
+        "\u251c\u2500\u2500 OWNER = \n",
+        "\u251c\u2500\u2500 TIME = \n",
+        "\u251c\u2500\u2500 TITLE = LL_cal\n",
+        "\u251c\u2500\u2500 VERSION = 1.0\n",
+        "\u251c\u2500\u2500 XPERCHAN = 0.5\n",
+        "\u251c\u2500\u2500 XUNITS = eV\n",
+        "\u2514\u2500\u2500 YUNITS = "
+       ]
+      }
+     ],
+     "prompt_number": 29
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.set_microscope_parameters(100,10,20)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 30
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 31,
+       "text": [
+        "\u251c\u2500\u2500 Acquisition_instrument\n",
+        "\u2502   \u2514\u2500\u2500 TEM\n",
+        "\u2502       \u251c\u2500\u2500 Detector\n",
+        "\u2502       \u2502   \u2514\u2500\u2500 EELS\n",
+        "\u2502       \u2502       \u2514\u2500\u2500 collection_angle = 20\n",
+        "\u2502       \u251c\u2500\u2500 beam_energy = 100\n",
+        "\u2502       \u2514\u2500\u2500 convergence_angle = 10\n",
+        "\u251c\u2500\u2500 General\n",
+        "\u2502   \u251c\u2500\u2500 original_filename = LL_cal.msa\n",
+        "\u2502   \u2514\u2500\u2500 title = LL_cal\n",
+        "\u2514\u2500\u2500 Signal\n",
+        "    \u251c\u2500\u2500 binned = True\n",
+        "    \u251c\u2500\u2500 record_by = spectrum\n",
+        "    \u251c\u2500\u2500 signal_origin = \n",
+        "    \u2514\u2500\u2500 signal_type = EELS"
+       ]
+      }
+     ],
+     "prompt_number": 31
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.metadata.Acquisition_instrument.TEM.microscope=\"STEM VG\""
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 33
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "preferences.gui()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stderr",
+       "text": [
+        "Exception occurred in traits notification handler for object: <hyperspy.defaults_parser.GeneralConfig object at 0x000000000BF2F258>, trait: logger_on, old value: False, new value: True\n",
+        "Traceback (most recent call last):\n",
+        "  File \"C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\traits\\trait_notifiers.py\", line 340, in __call__\n",
+        "    self.handler( *args )\n",
+        "  File \"C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\hyperspy\\defaults_parser.py\", line 108, in _logger_on_changed\n",
+        "    turn_logging_on()\n",
+        "  File \"C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\hyperspy\\misc\\ipython_tools.py\", line 85, in turn_logging_on\n",
+        "    \"# ============================\\n\")\n",
+        "  File \"C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\IPython\\core\\logger.py\", line 199, in log_write\n",
+        "    write(data)\n",
+        "TypeError: must be unicode, not str\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stderr",
+       "text": [
+        "ERROR:traits:Exception occurred in traits notification handler for object: <hyperspy.defaults_parser.GeneralConfig object at 0x000000000BF2F258>, trait: logger_on, old value: False, new value: True\n",
+        "Traceback (most recent call last):\n",
+        "  File \"C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\traits\\trait_notifiers.py\", line 340, in __call__\n",
+        "    self.handler( *args )\n",
+        "  File \"C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\hyperspy\\defaults_parser.py\", line 108, in _logger_on_changed\n",
+        "    turn_logging_on()\n",
+        "  File \"C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\hyperspy\\misc\\ipython_tools.py\", line 85, in turn_logging_on\n",
+        "    \"# ============================\\n\")\n",
+        "  File \"C:\\Program Files\\HyperSpy 0.8\\python-2.7.9.amd64\\lib\\site-packages\\IPython\\core\\logger.py\", line 199, in log_write\n",
+        "    write(data)\n",
+        "TypeError: must be unicode, not str\n"
+       ]
+      }
+     ],
+     "prompt_number": 34
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "im=signals.Image(np.random.random((64,64)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Exception occurred in traits notification handler.\n",
+        "Please check the log file for details.\n"
+       ]
+      }
+     ],
+     "prompt_number": 35
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}
