@@ -601,3 +601,28 @@ Cu = m.components.Cu_L3.intensity.as_signal()
 Cu.plot()
 m.components
 m.plot()
+Al
+for PIL import Image
+import PIL
+from PIL import Image
+im = Image.fromarray(Cu)
+im.save("~/EELS_hyperspy/Ge_based_GaAs_solarcell/Cu.png")
+im = Image.fromarray(Cu)
+im.save("~/EELS_hyperspy/Ge_based_GaAs_solarcell/Cu.jpeg")
+im = Image.fromarray(Cu)
+im.save("Cu.jpeg")
+Cu
+Cu.size
+im = Cu.load()
+m.components.Cu_L3.intensity.as_signal()
+scipy.io.savemat("~/Ge_based_GaAs_solarcell/Cu",{"Cu":Cu.data})
+import scipy.io as sio
+scipy.io.savemat("~/Ge_based_GaAs_solarcell/Cu",{"Cu":Cu.data})
+import scipy.io as sio
+sio.savemat("~/Ge_based_GaAs_solarcell/Cu",{"Cu":Cu.data})
+import scipy.io as sio
+sio.savemat("Cu",{"Cu":Cu.data})
+sio.savemat("Cu",{"Cu":Cu.data})
+sio.savemat("Ga",{"Ga":Ga.data})
+sio.savemat("As",{"As":As.data})
+sio.savemat("Al",{"Al":Al.data})
