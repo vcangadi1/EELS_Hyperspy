@@ -626,3 +626,110 @@ sio.savemat("Cu",{"Cu":Cu.data})
 sio.savemat("Ga",{"Ga":Ga.data})
 sio.savemat("As",{"As":As.data})
 sio.savemat("Al",{"Al":Al.data})
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+s.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+m = s.create_model()
+m
+m.multifit(kind='smart')
+m.quantify()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+ll = ll[90,43].data;
+m = s.create_model(ll=ll)
+ll = ll.isig[90,43].data;
+m = s.create_model(ll=ll)
+ll = ll.isig[90,43].data;
+ll.isig[90,43].data;
+ll.isig[90,43].data
+ll = ll.inav[0,0].data
+m = s.create_model(ll=ll)
+ll = ll.inav[90,43].data
+ll = ll.inav[43,90].data
+ll.plot()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+ll.plot()
+m = s.create_model(ll=ll)
+ll = ll.inav[43,90].data
+ll = ll.inav[1,1].data
+ll = ll.inav[40,90].data
+ll = ll.inav[40,40].data
+ll.plot()
+ll = ll.inav[43,43].data
+ll = ll.inav[1,2].data
+import hyperspy.api as hp
+import numpy as np
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+ll.plot()
+ll = ll.inav[1,2].data
+ll = ll.inav[43,90].data
+ll = ll.inav[1,2].data
+import hyperspy.api as hp
+import numpy as np
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+ll.plot()
+ll = ll.inav[40,40].data
+m = s.create_model(ll=ll)
+ll = ll.inav[40,40].data
+ll.plot()
+import hyperspy.api as hp
+import numpy as np
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+ll.plot()
+ll.inav[40,40].data
+ll.inav[40,40].data.plot()
+ll.inav[40,40].data
+ll.inav[43,90].data
+ll.inav[43,89].data
+ll = ll.inav[43,89].data
+m = s.create_model(ll=ll)
+m = s.create_model()
+m
+m.quantify()
+m.multifit(kind='smart')
+m.quantify()
+m.quantify()
+Ga = m.components.Ga_L3.intensity.as_signal();
+Ga.plot()
+As = m.components.As_L3.intensity.as_signal()
+As.plot()
+Al = m.components.Al_K.intensity.as_signal()
+Cu = m.components.Cu_L3.intensity.as_signal()
+Cu.plot()
+m.components
+m.plot()
+Ga
+import scipy.io as sio
+sio.savemat("Cu",{"Cu":Cu.data})
+sio.savemat("Ga",{"Ga":Ga.data})
+sio.savemat("As",{"As":As.data})
+m.components.Cu_L3.intensity.as_signal()
