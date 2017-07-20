@@ -735,3 +735,8 @@ sio.savemat("As",{"As":As.data})
 m.components.Cu_L3.intensity.as_signal()
 m.plot()
 m.plot()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s
+s.save('low_loss_0eVoffset.hdf5')
+s1 = hp.load('/Users/veersaysit/Dropbox/EELS_Hyperspy/low_loss_0eVoffset.hdf5')
+s1
