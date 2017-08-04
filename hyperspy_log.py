@@ -764,3 +764,466 @@ sio.savemat("Cu",{"Cu":Cu.data})
 sio.savemat("Ga",{"Ga":Ga.data})
 sio.savemat("As",{"As":As.data})
 m.components.Cu_L3.intensity.as_signal()
+ll1 = ll.inav[1:90,1:43].data
+ll1
+ll1.set_signal_type("EELS")
+ll2 = ll1.rebin((90,43,205))
+ll2 = ll1.rebin((90,43,205)).data
+ll1 = ll.inav[1:90,1:43].isig[]
+ll1 = ll.inav[1:90,1:43].isig[1:1024]
+ll1
+ll
+ll1 = ll.inav[0:42,0:89]
+ll1
+ll1 = ll.inav[0:44,0:90]
+ll1
+ll1 = ll.inav[0:42,0:90]
+ll2
+ll1
+ll1 = ll.inav[0:43,0:90]
+ll1
+ll2 = ll1.rebin((43,90,205))
+ll2
+ll2.plot()
+ll1 = ll.inav[:43,:90]
+ll1
+ll2 = ll1.rebin((43,90,205))
+ll2 = ll1.rebin((1,1,5))
+ll2
+ll2 = ll1.rebin(scale=(1,1,5))
+ll2
+ll2.plot()
+ll = ll.inav[:43,:90]
+ll = ll.inav[:43,:90]
+ll = ll.rebin(scale=(1,1,5))
+m = s.create_model(ll=ll)
+s = s.inav[:43,:90]
+s = ll.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin(scale=(1,1,5))
+ll
+import hyperspy.api as hp
+import numpy as np
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin(scale=(1,1,5))
+ll
+m = s.create_model(ll=ll)
+m
+m.components
+m.multifit(kind='smart')
+m.quantify()
+m.quantify()
+Ga = m.components.Ga_L3.intensity.as_signal();
+Ga.plot()
+As = m.components.As_L3.intensity.as_signal()
+As.plot()
+Cu = m.components.Cu_L3.intensity.as_signal()
+Cu.plot()
+m.components
+m.plot()
+Ga
+import scipy.io as sio
+sio.savemat("Cu",{"Cu":Cu.data})
+sio.savemat("Ga",{"Ga":Ga.data})
+sio.savemat("As",{"As":As.data})
+m.components.Cu_L3.intensity.as_signal()
+m.components.Cu_L3.intensity.as_signal()
+s = hs.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hs.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+s = hs.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")
+ll = hs.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")
+hs.datasets.eelsdb(formula="B2O3")
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+s.set_microscope_parameters(beam_energy=100, convergence_angle=0.2, collection_angle=2.55)
+s.add_elements(('B', 'N'))
+m = s.create_model(ll=ll)
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+m = s.create_model()
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll.data;
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll.data
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll.data = ll.data/sum(ll.data)
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll.data = ll.data/sum(ll.data)
+ll
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll
+ll.data = ll.data/sum(ll.data)
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll
+#ll.data = ll.data/sum(ll.data)
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll.plot()
+ll.data = ll.data/sum(ll.data)
+ll.data = ll.data/sum(ll.data)
+ll.plot()
+s.set_microscope_parameters(beam_energy=100, convergence_angle=0.2, collection_angle=2.55)
+s.add_elements(('B', 'N'))
+m = s.create_model()
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+m.quantify()
+m = s.create_model(ll=ll)
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+m = s.create_model()
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+B = m.components.B_K.intensity.as_signal()
+N = m.components.N_K.intensity.as_signal()
+B/(B+N)
+display(B/(B+N))
+print(B/(B+N))
+print(B/(B+N))
+B
+B
+print B
+print 'B'
+print(B)
+B.plot()
+B.plot()
+B.plot()
+size(B)
+print "%d" % (B)
+print "%f" % (B)
+B
+m.components.B_K.intensity.as_signal()
+B = m.components.B_K.intensity.as_signal()
+N = m.components.N_K.intensity.as_signal()
+B.data
+B.data*100/(B.data+N.data)
+N.data*100/(B.data+N.data)
+import hyperspy.api as hp
+import numpy as np
+get_ipython().magic('matplotlib qt5')
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll.plot()
+#ll.data = ll.data/sum(ll.data)
+ll.plot()
+s.set_microscope_parameters(beam_energy=100, convergence_angle=0.2, collection_angle=2.55)
+s.add_elements(('B', 'N'))
+m = s.create_model()
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+B = m.components.B_K.intensity.as_signal()
+m = s.create_model(ll=ll)
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+B = m.components.B_K.intensity.as_signal()
+N = m.components.N_K.intensity.as_signal()
+B.data
+B.data*100/(B.data+N.data)
+N.data*100/(B.data+N.data)
+ll.data = ll.data/sum(ll.data)
+ll.plot()
+s.set_microscope_parameters(beam_energy=100, convergence_angle=0.2, collection_angle=2.55)
+s.add_elements(('B', 'N'))
+m = s.create_model(ll=ll)
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+B = m.components.B_K.intensity.as_signal()
+N = m.components.N_K.intensity.as_signal()
+B.data
+B.data*100/(B.data+N.data)
+N.data*100/(B.data+N.data)
+s = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="coreloss")[0]
+ll = hp.datasets.eelsdb(title="Hexagonal Boron Nitride", spectrum_type="lowloss")[0]
+ll.plot()
+ll.data = ll.data/sum(ll.data)
+ll.plot()
+s.set_microscope_parameters(beam_energy=100, convergence_angle=0.2, collection_angle=2.55)
+s.add_elements(('B', 'N'))
+m = s.create_model()
+m.components
+m.enable_fine_structure()
+m.components
+m.smart_fit()
+m.quantify()
+B = m.components.B_K.intensity.as_signal()
+N = m.components.N_K.intensity.as_signal()
+B.data
+B.data*100/(B.data+N.data)
+N.data*100/(B.data+N.data)
+ll.data = ll.data/sum(ll.data)
+ll.data = ll.data/sum(ll.data)
+ll
+ll.data = ll.data/sum(ll.data)
+ll.plot()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')[0]
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')[0]
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin(scale=(1,1,5))
+ll
+ll.data = ll.data/sum(ll.data)
+ll.plot()
+s = s.inav[:43,:90]
+s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+ll.data = ll.data/sum(ll.data)
+ll.plot()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+#ll.data = ll.data/sum(ll.data)
+ll.plot()
+#ll.data = ll.data/sum(ll.data)
+ll.plot()
+sum(ll.data).shape
+#ll.data = ll.data/sum(ll.data)
+ll.plot()
+sum(sum(ll.data)).shape
+#ll.data = ll.data/sum(ll.data)
+ll.plot()
+ll.sum(-1).data.shape
+ll.data = ll.data/ll.sum(-1).data
+ll.plot()
+ll.data.shape
+ll.data = ll.data/ll.sum(-1).data
+ll.plot()
+ll.sum(-1).data
+ll.sum(-1).data.plot()
+s1 = ll.sum(-1).data
+s1.plot()
+s1 = ll.sum(-1)
+s1.plot()
+ll.data = ll.data/ll.sum(-1)
+ll.plot()
+ll.data = ll.data./ll.sum(-1)
+ll.plot()
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s1 = ll.sum(-1)
+s2 = np.matlib.repmat(s1, 1, 1, 205)
+s2
+s1 = ll.sum(-1)
+s2 = np.matlib.repmat(s1, 1, 205)
+s2
+s1 = ll.sum(-1)
+s2 = np.matlib.repmat(s1, 1, 205)
+s2.shape
+s1 = ll.sum(-1)
+s2 = numpy.tile(s1, [1, 1, 5])
+s2.shape
+s1 = ll.sum(-1)
+s2 = numpy.tile(s1, [1, 1, 5])
+s1.shape
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s1 = ll.sum(-1)
+s2 = numpy.tile(s1, [1, 1, 5])
+s1.shape
+s1 = ll.sum(-1)
+#s2 = numpy.tile(s1, [1, 1, 5])
+s1.shape
+s1 = ll.sum(-1).data
+#s2 = numpy.tile(s1, [1, 1, 5])
+s1.shape
+s1 = ll.sum(-1).data
+s2 = numpy.tile(s1, [1, 1, 5])
+s1.shape
+s1 = ll.sum(-1).data
+s2 = numpy.tile(s1, [1, 1, 5])
+s2.shape
+s1 = ll.sum(-1).data
+s2 = numpy.tile(s1, [1, 1, 1])
+s2.shape
+s1 = ll.sum(-1).data
+s2 = numpy.tile(s1, [1, 1, 2])
+s2.shape
+s1 = ll.sum(-1).data
+s2 = numpy.tile(s1, [1, 1, 1])
+s2.shape
+s1 = ll.sum(-1).data
+s2 = numpy.tile(s1, [5, 1, 1])
+s2.shape
+s1 = ll.sum(-1).data
+s2 = numpy.tile(s1, [1024, 1, 1])
+s2.shape
+s1 = ll.sum(-1).data
+s2 = numpy.tile(s1, [205, 1, 1])
+s2.shape
+s1 = ll
+s1.data = ll.sum(-1).data
+s2.data = numpy.tile(s1.data, [205, 1, 1])
+s2.shape
+s1 = ll
+s1.data = ll.sum(-1).data
+s2.data = numpy.tile(s1.data, [205, 1, 1])
+s2
+s2 = ll
+s1 = ll.sum(-1).data
+s2.data = numpy.tile(s1.data, [205, 1, 1])
+s2
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s2 = ll
+s1 = ll.sum(-1).data
+s2.data = numpy.tile(s1.data, [205, 1, 1])
+s2
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+s2
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+s2.plot()
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = ll.data/s2.data
+s2.plot()
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = ll.data/s2.data
+ll.plot()
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = ll.data/s2.data
+ll.plot()
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = ll.data/s2.data
+ll.plot()
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = np.divide(ll.data,s2.data)
+ll.plot()
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = np.divide(ll.data,s2.data)
+ll.plot()
