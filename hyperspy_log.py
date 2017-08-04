@@ -740,3 +740,27 @@ s
 s.save('low_loss_0eVoffset.hdf5')
 s1 = hp.load('/Users/veersaysit/Dropbox/EELS_Hyperspy/low_loss_0eVoffset.hdf5')
 s1
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+ll.plot()
+m = s.create_model()
+m
+m.multifit(kind='smart')
+m.quantify()
+Ga = m.components.Ga_L3.intensity.as_signal();
+Ga.plot()
+As = m.components.As_L3.intensity.as_signal()
+As.plot()
+Cu = m.components.Cu_L3.intensity.as_signal()
+Cu.plot()
+m.components
+m.plot()
+import scipy.io as sio
+sio.savemat("Cu",{"Cu":Cu.data})
+sio.savemat("Ga",{"Ga":Ga.data})
+sio.savemat("As",{"As":As.data})
+m.components.Cu_L3.intensity.as_signal()
