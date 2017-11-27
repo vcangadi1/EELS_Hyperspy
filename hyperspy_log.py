@@ -1227,3 +1227,66 @@ ll.plot()
 s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
 ll.data = np.divide(ll.data,s2.data)
 ll.plot()
+import numpy as np
+import matplotlib.pyplot as plt
+s = hp.load('/Users/veersaysit/Desktop/EELS data/InGaN/100kV/EELS Spectrum Image6-b.dm3')
+ax = s.plot_explained_variance_ratio(n=20)
+s.decomposition()
+ax = s.plot_explained_variance_ratio(n=20)
+get_ipython().magic('matplotlib inline')
+ax = s.plot_explained_variance_ratio(n=20)
+ax = s.plot_explained_variance_ratio(n=20,threshold=4,xaxis_type='number')
+sc = s.get_decomposition_model(components)
+sc = s.get_decomposition_model(4)
+(s-sc).plot()
+get_ipython().magic('matplotlib qt5')
+sc.plot()
+import numpy as np
+import matplotlib.pyplot as plt
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/InGaN/100kV/EELS Spectrum Image6-b.dm3')
+s.decomposition()
+ax = s.plot_explained_variance_ratio(n=20)
+ax = s.plot_explained_variance_ratio(n=20,threshold=4,xaxis_type='number')
+sc = s.get_decomposition_model(4)
+(s-sc).plot()
+sc.plot()
+s.blind_source_separation(3)
+plot_bss_results()
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=2, loadings_dim=2)
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=2, loadings_dim=1)
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=1)
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=1, loadings_dim=1)
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=2, loadings_dim=1)
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=2, loadings_dim=1(2))
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=1(2), loadings_dim=1(2))
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=1, loadings_dim=1(2))
+plot_bss_results(factors_navigator='smart_auto', loadings_navigator='smart_auto', factors_dim=2, loadings_dim=1(2))
+plot_decomposition_factors()
+B = s.blind_source_separation(3)
+B
+B
+ax
+B
+get_ipython().magic('matplotlib qt5')
+S = hp.load('/Users/veersaysit/Desktop/EELS data/Dspec9TnZnl.msa')
+S = hp.datasets.eelsdb(formula="GaAs")
+S.plot()
+S
+S[:,1].plot()
+S[:,1]
+S(1)
+S[1]
+S[1].plot()
+S[2].plot()
+S[2].plot()
+S[2]
+S[1]
+S[1,1]
+S[1].data
+S
+S[-1]
+S[0]
+S[0].plot()
+S[0].plot()
+S[1].plot()
