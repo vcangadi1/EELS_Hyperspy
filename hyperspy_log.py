@@ -1290,3 +1290,1086 @@ S[0]
 S[0].plot()
 S[0].plot()
 S[1].plot()
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/GaN_EPistar-nanowiresVEELS_28032017/profile_series1_gatan.dm3')
+s
+s.plot()
+m = s.create_model(ll=s, auto_background=False)
+m = s.create_model(auto_background=False)
+s.estimate_thickness()
+s.align_zero_loss_peak()
+s.remove_background()
+s.remove_background()
+m = s.create_model()
+s.set_signal_type("EELS")
+m = s.create_model()
+m = s.create_model()
+s.metadata
+m = s.create_model(ll=ll)
+m = s.create_model()
+s.set_microscope_parameters(beam_energy=197, convergence_angle=10, collection_angle=20)
+m = s.create_model()
+m.components
+m = s.create_model(auto_background=False)
+m.components
+L1 = hs.model.components1D.Lorentzian()
+L1 = hp.model.components1D.Lorentzian()
+m.append(L1)
+m.components
+m.fit_component(g1)
+m.fit_component(L1)
+m.plot()
+f = L1.function
+f
+f.plot()
+L1.plot()
+L1.plot()
+m.plot()
+L1.plot()
+PL = L1.as_signal()
+PL = L1.function(L1.A,L1.centre)
+PL = L1.function()
+PL = L1.function(A=L1.A, gamma=L1.gamma, centre=L1.centre)
+PL = L1.function(gamma=L1.gamma, centre=L1.centre)
+L1.A
+L1.A.data
+L1.A.as_signal
+print L1.A
+list L1.A
+L1
+L1.parameters.as_signal
+L1.parameters.as_signal()
+PL = m.components.Lorentzian.as_signal()
+m
+m.components
+PL = m.as_signal()
+PL.plot()
+s1p = s-PL
+s1p.plot()
+import scipy.io as sio
+sio.loadmat('S1p.m')
+mat_contents = sio.loadmat('S1p.mat')
+mat_contents
+S1p = mat_contents['S1p']
+S1p.plot()
+S1p
+S1p.set_signal_type('EELS')
+S1p.set_signal_type("EELS")
+plot(S1p)
+S1p.data()
+S1p.metadata
+S1p = hp.signals.Signal1D(S1p)
+S1p
+S1p.plot()
+S1p.plot()
+S1p.set_signal_type('EELS')
+S1p.plot()
+S1p.shape
+S1p = mat_contents['S1p']
+S1p = mat_contents['S1p']
+S1p.shape
+S1p = hp.signals.Signal1D(S1p)
+S1p = hp.signals.Signal1D(S1p)
+S1p.set_signal_type('EELS')
+S1p.shape
+S1p.metadata
+S1p.plot()
+mat_contents = sio.loadmat('S1p.mat')
+mat_contents
+S1p = mat_contents['S1p']
+S1p.shape
+S1p = hp.signals.Signal1D(S1p)
+S1p.set_signal_type('EELS')
+S1p.metadata
+S1p.plot()
+rS1p = S1p.fourier_log_deconvolution()
+mat_contents = sio.loadmat('eS1p.mat')
+mat_contents = sio.loadmat('eS1p.mat')
+eS1p = mat_contents['eS1p']
+eS1p = hp.signals.Signal1D(eS1p)
+eS1p.set_signal_type('EELS')
+rS1p = S1p.fourier_log_deconvolution(zlp=eS1p)
+rS1p.plot()
+flS1p = S1p.fourier_log_deconvolution(zlp=eS1p)
+rS1p.plot()
+flS1p.plot()
+sio.savemat("flS1p",{"flS1p":flS1p.data})
+flS1p.data
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/GaN_EPistar-nanowiresVEELS_28032017/Data_27_06_2017/Profile Of sum24_series3.dm3')
+s
+s.plot()
+s.plot()
+s.align_zero_loss_peak()
+s.set_signal_type("EELS")
+s.metadata
+s.set_microscope_parameters(beam_energy=197, convergence_angle=10, collection_angle=20)
+m = s.create_model(auto_background=False)
+m.components
+L3 = hp.model.components1D.Lorentzian()
+m.append(L3)
+m.components
+m.fit_component(L3)
+m.plot()
+L3
+L3.A.as_signal
+m.components
+PL = m.as_signal()
+PL.plot()
+s3p = s-PL
+s3p.plot()
+import scipy.io as sio
+mat_contents = sio.loadmat('S3_combined.mat')
+#Note that while saving .mat file in matlab always make sure it is in (1,1024) dimention and not in (1024,1).
+mat_contents
+S3p = mat_contents['S3p']
+S3p.shape
+S3p = hp.signals.Signal1D(S3p)
+S3p.set_signal_type('EELS')
+S3p.metadata
+S3p.plot()
+eS3p = mat_contents['eS3p']
+eS3p = hp.signals.Signal1D(eS3p)
+eS3p.set_signal_type('EELS')
+flS3p = S1p.fourier_log_deconvolution(zlp=eS3p)
+flS3p = S3p.fourier_log_deconvolution(zlp=eS3p)
+flS3p.plot()
+sio.savemat("flS3p",{"flS3p":flS3p.data})
+flS3p.data
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/GaAs100_Q4_EELStest_130705/Pos1_20muCA/Profile Of Pos 1 EELS_1s.dm3')
+s
+s.plot()
+s.align_zero_loss_peak()
+s.set_signal_type("EELS")
+s.metadata
+s.set_microscope_parameters(beam_energy=197, convergence_angle=10, collection_angle=20)
+m = s.create_model(auto_background=False)
+m.components
+Lg = hp.model.components1D.Lorentzian()
+m.append(Lg)
+m.components
+m.fit_component(Lg)
+m.plot()
+m.plot()
+Lg
+Lg.A.as_signal
+m.components
+PL = m.as_signal()
+PL.plot()
+sgp = s-PL
+sgp.plot()
+import scipy.io as sio
+#mat_contents = sio.loadmat('S3_combined.mat')
+#Note that while saving .mat file in matlab always make sure it is in (1,1024) dimention and not in (1024,1).
+#mat_contents
+#S3p = mat_contents['S3p']
+#S3p.shape
+#S3p = hp.signals.Signal1D(S3p)
+#S3p.set_signal_type('EELS')
+#S3p.metadata
+sgp.plot()
+import scipy.io as sio
+mat_contents = sio.loadmat('Sg_combined.mat')
+#Note that while saving .mat file in matlab always make sure it is in (1,1024) dimention and not in (1024,1).
+mat_contents
+S3p = mat_contents['S3p']
+S3p.shape
+Sg1p = mat_contents['Sg1p']
+Sg1p.shape
+Sg1p = hp.signals.Signal1D(Sg1p)
+Sg1p.set_signal_type('EELS')
+Sg1p.metadata
+Sg1p.plot()
+eSg1p = mat_contents['eSg1p']
+eSg1p = hp.signals.Signal1D(eSg1p)
+eSg1p.set_signal_type('EELS')
+flSg1p = Sg1p.fourier_log_deconvolution(zlp=eSg1p)
+flSg1p.plot()
+sio.savemat("flSg1p",{"flSg1p":flS3p.data})
+sio.savemat("flSg1p",{"flSg1p":flSg1p.data})
+flSg1p.data
+flSg1p = Sg1p.fourier_log_deconvolution()
+flSg1p = Sg1p.fourier_log_deconvolution(zlp=eSg1p)
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+s.plot()
+import hyperspy.api as hp
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+s.plot()
+s.remove_background()
+s.remove_background()
+s.plot()
+s.remove_background()
+s.remove_background()
+roi = hp.roi.SpanROI(left=923, right=1023)
+s.plot()
+roi.add_widget(s, axes=["Energy loss"])
+
+s_Cu = s.isig[roi].integrate1D(axis="Energy loss")
+s_Cu.plot()
+roi = hp.roi.SpanROI(left=931, right=1031)
+s.plot()
+roi.add_widget(s, axes=["Energy loss"])
+
+s_Cu = s.isig[roi].integrate1D(axis="Energy loss")
+s_Cu.plot()
+
+s_Cu = s.isig[roi].integrate1D(axis="Energy loss")
+s_Cu.plot()
+s_Cu.data
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+s_Ga = s.remove_background()
+s.plot()
+roi = hp.roi.SpanROI(left=1023, right=1113)
+s.remove_background(signal_range=roi, background_type="Exponential")
+s.remove_background(signal_range=roi, background_type="Power Law")
+s.remove_background(signal_range=roi)
+roi = hp.roi.SpanROI(left=931, right=1031)
+s.plot()
+roi.add_widget(s, axes=["Energy loss"])
+s.remove_background()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+s.remove_background(signal_range=(891.,929.)).isig[931.:1031.].integrate1D(axis="Energy loss")
+roi = hp.roi.SpanROI(left=931, right=10)
+s.plot()
+roi.add_widget(s, axes=["Energy loss"])
+
+#s_Cu = s.isig[roi].integrate1D(axis="Energy loss")
+s_Cu.plot()
+s_Cu = s.remove_background(signal_range=(891.,929.)).isig[931.:1031.].integrate1D(axis="Energy loss")
+#roi = hp.roi.SpanROI(left=931, right=10)
+#s.plot()
+#roi.add_widget(s, axes=["Energy loss"])
+
+#s_Cu = s.isig[roi].integrate1D(axis="Energy loss")
+s_Cu.plot()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+s_Ga = s.remove_background(signal_range=(1023.,1113.)).isig[1115.:1217.].integrate1D(axis="Energy loss")
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+s_As = s.remove_background()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+s_Ge = s.remove_background(signal_range=(1166.,1215.)).isig[1217.:1323.].integrate1D(axis="Energy loss")
+s_As = s.remove_background(signal_range=(1270.,1321.)).isig[1323.:1560.].integrate1D(axis="Energy loss")
+s_AlK = s.remove_background(signal_range=(1441.,1558.)).isig[1560.:1660.].integrate1D(axis="Energy loss")
+import scipy.io as sio
+sio.savemat("Cu_hspy",{"Cu_hspy":s_Cu.data})
+sio.savemat("Ga_hspy",{"Ga_hspy":s_Ga.data})
+sio.savemat("Ge_hspy",{"Ge_hspy":s_Ge.data})
+sio.savemat("As_hspy",{"As_hspy":s_As.data})
+sio.savemat("AlK_hspy",{"AlK_hspy":s_AlK.data})
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+s_C = s.remove_background(signal_range=(242.,283.)).isig[284.:334.].integrate1D(axis="Energy loss")
+s_In = s.remove_background(signal_range=(363.,442.)).isig[443.:532.].integrate1D(axis="Energy loss")
+s_O = s.remove_background(signal_range=(487.,531.)).isig[532.:582.].integrate1D(axis="Energy loss")
+sio.savemat("C_hspy",{"C_hspy":s_C.data})
+sio.savemat("In_hspy",{"In_hspy":s_In.data})
+sio.savemat("O_hspy",{"O_hspy":s_O.data})
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image small disp0.1offset80time0.5s.dm3')
+s_AlL3 = s.remove_background(signal_range=(72.,72.8)).isig[73.:100.].integrate1D(axis="Energy loss")
+s_Si = s.remove_background(signal_range=(86.,99.8)).isig[100.:115.].integrate1D(axis="Energy loss")
+s_AlL1 = s.remove_background(signal_range=(109.,117.8)).isig[118.:135.].integrate1D(axis="Energy loss")
+s_P = s.remove_background(signal_range=(126.,134.8)).isig[135.:172.4].integrate1D(axis="Energy loss")
+sio.savemat("AlL3_hspy",{"AlL3_hspy":s_AlL3.data})
+sio.savemat("Si_hspy",{"Si_hspy":s_Si.data})
+sio.savemat("AlL1_hspy",{"AlL1_hspy":s_AlL1.data})
+sio.savemat("P_hspy",{"P_hspy":s_P.data})
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s2.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = np.divide(ll.data,s2.data)
+ll.plot()
+s.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = np.divide(ll.data,s2.data)
+ll.plot()
+s.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = np.divide(ll.data,s.data)
+ll.plot()
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = np.divide(ll.data,s.data)
+ll.plot()
+s1.plot()
+#s.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+#s1.plot()
+ll.data = ll.data/ll.sum(-1)
+ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+m = s.create_model(ll=ll)
+m
+m.components
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+#s.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+#s1.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+m = s.create_model(ll=ll)
+m
+m.components
+m.multifit(kind='smart')
+m.components
+s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+m
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+m
+m.components
+m.multifit(kind='smart')
+m.quantify()
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+m = s.create_model(ll=ll)
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+#s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+m
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+m
+m.components
+m.multifit(kind='smart')
+m.quantify()
+s.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+#s1.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+m.quantify()
+Ga = m.components.Ga_L3.intensity.as_signal();
+Ga.plot()
+As = m.components.As_L3.intensity.as_signal()
+As.plot()
+Cu = m.components.Cu_L3.intensity.as_signal()
+Cu.plot()
+m.components
+m.plot()
+m.plot()
+import scipy.io as sio
+sio.savemat("Cu_hspy_mlls",{"Cu_hspy_mlls":Cu.data})
+sio.savemat("Ga_hspy_mlls",{"Ga_hspy_mlls":Ga.data})
+sio.savemat("As_hspy_mlls",{"As_hspy_mlls":As.data})
+m.components.Cu_L3.intensity.as_signal()
+#m.plot()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('C','In','O'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+#s1.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+#s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+#s.add_elements(('C','In','O'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+#s1.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+s.add_elements(('C','In','O'))
+m = s.create_model(ll=ll)
+s.plot()
+s.plot()
+ll.plot()
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+s.add_elements(('C','In','O'))
+m = s.create_model(ll=ll)
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+#s.add_elements(('C','In','O'))
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+#s.add_elements(('C','In','O'))
+#s = s.inav[:44,:90]
+###########s = s.rebin(scale=(1,1,1))
+#s = s.rebin((44,90,1024))
+#s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+#s.add_elements(('C','In','O'))
+#s = s.inav[:44,:90]
+###########s = s.rebin(scale=(1,1,1))
+#s = s.rebin((44,90,1024))
+#s
+ll = ll.inav[:44,:90]
+ll = ll.rebin((44,90,205))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+s.add_elements(('C','In','O'))
+m = s.create_model(ll=ll)
+s.add_elements(('C','In','O'))
+m = s.create_model(ll=ll)
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+#s.add_elements(('C','In','O'))
+s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,410))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+s.add_elements(('C','In','O'))
+m = s.create_model(ll=ll)
+s.add_elements(('C','In','O'))
+m = s.create_model()
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('C','In','O'))
+#s.add_elements(('C','In','O'))
+m = s.create_model()
+s.plot()
+#ll.plot()
+#s.add_elements(('C','In','O'))
+m = s.create_model()
+s.add_elements(('C','In','O'))
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+#s.add_elements(('C','In','O'))
+m = s.create_model()
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+#s1.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+m
+m.components
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,409))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+#ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+#s.add_elements(('C','In','O'))
+m = s.create_model()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+s.add_elements(('C','O'))
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+s.add_elements(('C','O'))
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+s.add_elements(('C','In','O'))
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+hp.preferences.gui()
+hp.preferences.gui()
+import hyperspy.api as hs
+import numpy as np
+x = np.arange(100, 1000)
+s = hs.signals.EELSSpectrum(x)
+s.set_microscope_parameters(100, 10, 10)
+s.add_elements(("C", "O"))
+m = s.create_model()
+m.components
+import hyperspy.api as hs
+import numpy as np
+x = np.arange(100, 1000)
+s = hs.signals.EELSSpectrum(x)
+s.set_microscope_parameters(100, 10, 10)
+s.add_elements(("C", "O", "In"))
+m = s.create_model()
+m.components
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,409))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+#ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+import hyperspy.api as hs
+import numpy as np
+x = np.arange(100, 1000)
+s = hs.signals.EELSSpectrum(x)
+s.set_microscope_parameters(100, 10, 10)
+s.add_elements(("C", "O", "In"))
+m = s.create_model()
+m.components
+import hyperspy.api as hs
+import numpy as np
+x = np.arange(100, 1000)
+s = hs.signals.EELSSpectrum(x)
+s.set_microscope_parameters(100, 10, 10)
+s.add_elements(("C", "O", "In"))
+m = s.create_model()
+m.components
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,409))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+#ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.5offset250time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,409))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+#ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+m
+m.components
+m.multifit(kind='smart')
+hp.preferences.gui()
+s.add_elements(('C','In','O'))
+s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,409))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+#ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+#s.add_elements(('C','In','O'))
+
+m = s.create_model()
+m
+m.components
+m.multifit(kind='smart')
+m.quantify()
+Ga = m.components.Ga_L3.intensity.as_signal();
+C = m.components.C_K.intensity.as_signal();
+C.plot()
+In_M5 = m.components.In_M5.intensity.as_signal()
+In_M4 = m.components.In_M4.intensity.as_signal()
+In_M3 = m.components.In_M3.intensity.as_signal()
+In_M2 = m.components.In_M2.intensity.as_signal()
+In.plot()
+In_M5.plot()
+In_M4.plot()
+In_M3.plot()
+In_M2.plot()
+In_M5.plot()
+In_M5.plot()
+In = In_M5+In_M4+In_M3+In_M2
+In.plot()
+#In_M5.plot()
+In = In_M5+In_M4+In_M3+In_M2
+In.plot()
+(In_M5+In_M4+In_M3+In_M2).plot()
+In.plot()
+In.plot()
+O = m.components.O_K.intensity.as_signal()
+O.plot()
+m.components
+m.plot()
+#s.add_elements(('C','In','O'))
+
+m = s.create_model(ll=ll)
+m
+m.components
+m.multifit(kind='smart')
+m.quantify()
+C = m.components.C_K.intensity.as_signal();
+C.plot()
+In_M5 = m.components.In_M5.intensity.as_signal()
+In_M4 = m.components.In_M4.intensity.as_signal()
+In_M3 = m.components.In_M3.intensity.as_signal()
+In_M2 = m.components.In_M2.intensity.as_signal()
+In.plot()
+In_M5.plot()
+O
+import scipy.io as sio
+sio.savemat("C_hspy_mlls",{"C_hspy_mlls":Cu.data})
+sio.savemat("In_hspy_mlls",{"In_hspy_mlls":Ga.data})
+sio.savemat("O_hspy_mlls",{"O_hspy_mlls":As.data})
+sio.savemat("C_hspy_mlls",{"C_hspy_mlls":C.data})
+sio.savemat("In_hspy_mlls",{"In_hspy_mlls":In.data})
+sio.savemat("O_hspy_mlls",{"O_hspy_mlls":O.data})
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image small disp0.1offset80time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+s.add_elements(('Al','Si','P'))
+#s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+#s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,2048))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+s.plot()
+#ll.plot()
+#s.plot()
+ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+#s.add_elements(('C','In','O'))
+
+m = s.create_model(ll=ll)
+s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image small disp0.1offset80time0.5s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+hp.preferences.gui()
+s.add_elements(('Al','Si','P'))
+#s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+#s = s.rebin((43,90,1024))
+#s
+#s = s.inav[:43,:90]
+###########s = s.rebin(scale=(1,1,1))
+#s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:22,:45]
+ll = ll.rebin((22,45,2048))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+#s.plot()
+ll.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+#s.add_elements(('C','In','O'))
+
+m = s.create_model(ll=ll)
+m
+m.components
+m.multifit(kind='smart')
+m.quantify()
+C = m.components.C_K.intensity.as_signal();
+Al_L3 = m.components.Al_L3.intensity.as_signal();
+In_M5.plot()
+In = (In_M5+In_M4+In_M3+In_M2)
+O = m.components.O_K.intensity.as_signal()
+m.components
+import scipy.io as sio
+sio.savemat("C_hspy_mlls",{"C_hspy_mlls":C.data})
+sio.savemat("In_hspy_mlls",{"In_hspy_mlls":In.data})
+sio.savemat("O_hspy_mlls",{"O_hspy_mlls":O.data})
+Al.plot()
+Al_L3.plot()
+Al_L1.plot()
+Al_L3 = m.components.Al_L3.intensity.as_signal();
+Al_L1.plot()
+Al_L3 = m.components.Al_L3.intensity.as_signal();
+Al_L3.plot()
+Al_L1 = m.components.Al_L1.intensity.as_signal();
+Al_L1.plot()
+Al = (Al_L3+Al_L1)
+Al = (Al_L3+Al_L1)
+Al.plot()
+Si_L3 = m.components.Si_L3.intensity.as_signal()
+Si_L2 = m.components.Si_L2.intensity.as_signal()
+Si_L1 = m.components.Si_L1.intensity.as_signal()
+Si.plot()
+Si_L3 = m.components.Si_L3.intensity.as_signal()
+Si_L2 = m.components.Si_L2.intensity.as_signal()
+Si_L1 = m.components.Si_L1.intensity.as_signal()
+Si = (Si_L3+Si_L2+Si_L1)
+Si.plot()
+m.components
+m.plot()
+P = m.components.P_L3.intensity.as_signal()
+P = m.components.P_L3.intensity.as_signal()
+P.plot()
+m.components
+m.plot()
+P
+import scipy.io as sio
+sio.savemat("Al_hspy_mlls",{"Al_hspy_mlls":Al.data})
+sio.savemat("Si_hspy_mlls",{"Si_hspy_mlls":Si.data})
+sio.savemat("P_hspy_mlls",{"P_hspy_mlls":P.data})
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+#s1.data = numpy.tile(ll.sum(-1).data, [205, 1, 1])
+#ll.data = np.divide(ll.data,s.data)
+#ll.plot()
+#s1.plot()
+#ll.data = ll.data/ll.sum(-1)
+#ll.plot()
+s.add_elements(('Ga','As','Cu'))
+m = s.create_model(ll=ll)
+m
+m.components
+m.multifit(kind='smart')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+import hyperspy.api as hp
+import numpy as np
+import numpy.matlib
+get_ipython().magic('matplotlib qt5')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp1offset950time2s.dm3')
+ll = hp.load('/Users/veersaysit/Desktop/EELS data/Ge-basedSolarCell_24082015/EELS Spectrum Image disp0.2offset0time0.1s.dm3')
+s.set_signal_type("EELS")
+ll.set_signal_type("EELS")
+s.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+ll.set_microscope_parameters(beam_energy=197,collection_angle=15,convergence_angle=16.6)
+s.add_elements(('Ga','As','Cu'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s.add_elements(('Ga','As','Cu','In'))
+s = s.inav[:43,:90]
+#s = s.rebin(scale=(1,1,1))
+s = s.rebin((43,90,1024))
+s
+ll = ll.inav[:43,:90]
+ll = ll.rebin((43,90,205))
+ll
+s.add_elements(('Ga','As','Cu','In'))
+
+m = s.create_model(ll=ll)
+m
+m.components
+m.multifit(kind='smart')
+import numpy as np
+import matplotlib.pyplot as plt
+get_ipython().magic('matplotlib qt5')
+get_ipython().magic('matplotlib inline')
+s = hp.load('/Users/veersaysit/Desktop/EELS data/InGaN/100kV/EELS Spectrum Image6-b.dm3')
+s.decomposition()
+ax = s.plot_explained_variance_ratio(n=20)
+ax = s.plot_explained_variance_ratio(n=20)
+ax = s.plot_explained_variance_ratio(n=20,threshold=4,xaxis_type='number')
+sc = s.get_decomposition_model(4)
+(s-sc).plot()
+sc.plot()
+B = s.blind_source_separation(3)
+B
+m.quantify()
